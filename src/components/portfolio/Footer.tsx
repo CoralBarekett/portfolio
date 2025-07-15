@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Software Developer</h3>
+              <h3 className="text-xl font-bold mb-4">Coral Bareket - Software Developer</h3>
               <p className="text-background/80 leading-relaxed">
                 Building the future, one line of code at a time. 
                 Let's create something amazing together.
@@ -50,12 +50,10 @@ const Footer = () => {
           {/* Bottom Bar */}
           <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center text-background/80 text-sm">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <span>Made with</span>
-              <Heart className="h-4 w-4 text-red-400 fill-current" />
               <span>using React & Tailwind CSS</span>
             </div>
             <div>
-              © 2024 Software Developer Portfolio. All rights reserved.
+                © 2025 Coral Bareket. All rights reserved. Proudly crafted with ❤️
             </div>
           </div>
         </div>

@@ -10,31 +10,31 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "your.email@example.com",
-      link: "mailto:your.email@example.com"
+      content: "coral.bareket@gmail.com",
+      link: "mailto:coral.bareket@gmail.com"
     },
     {
       icon: Github,
       title: "GitHub",
-      content: "github.com/yourusername",
-      link: "https://github.com/yourusername"
+      content: "github.com/CoralBarekett",
+      link: "https://github.com/CoralBarekett"
     },
     {
       icon: Linkedin,
       title: "LinkedIn",
-      content: "linkedin.com/in/yourprofile",
-      link: "https://linkedin.com/in/yourprofile"
+      content: "linkedin.com/in/coralbareket",
+      link: "https://www.linkedin.com/in/coral-bareket-97b886216/"
     },
     {
       icon: MapPin,
       title: "Location",
-      content: "Your City, Country",
+      content: "Bat Yam, Israel",
       link: null
     }
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
@@ -42,14 +42,14 @@ const ContactSection = () => {
               Let's Work Together
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              I'm always interested in new opportunities and exciting projects. 
-              Feel free to reach out if you'd like to collaborate or just say hello!
+              I'm actively seeking new opportunities to grow and contribute as a developer.
+              If you think we'd be a great fit, feel free to reach out - I'd be happy to chat.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="shadow-soft border-border bg-card">
+            <Card id="contact-form" className="shadow-soft border-border bg-card">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold text-card-foreground">
                   Send Message
@@ -59,51 +59,51 @@ const ContactSection = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="text-card-foreground">First Name</Label>
-                    <Input 
-                      id="firstName" 
-                      placeholder="John" 
+                    <Input
+                      id="firstName"
+                      placeholder=""
                       className="border-border focus:ring-primary"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName" className="text-card-foreground">Last Name</Label>
-                    <Input 
-                      id="lastName" 
-                      placeholder="Doe" 
+                    <Input
+                      id="lastName"
+                      placeholder=""
                       className="border-border focus:ring-primary"
                     />
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-card-foreground">Email</Label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="john@example.com" 
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder=""
                     className="border-border focus:ring-primary"
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-card-foreground">Subject</Label>
-                  <Input 
-                    id="subject" 
-                    placeholder="Project Collaboration" 
+                  <Input
+                    id="subject"
+                    placeholder="Job Opportunity"
                     className="border-border focus:ring-primary"
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-card-foreground">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell me about your project or just say hello!" 
+                  <Textarea
+                    id="message"
+                    placeholder="Got a job opportunity in mind? I'd love to hear the details - or just say hi !"
                     rows={6}
                     className="border-border focus:ring-primary resize-none"
                   />
                 </div>
-                
+
                 <Button className="w-full group">
                   Send Message
                   <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -116,8 +116,7 @@ const ContactSection = () => {
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-foreground">Get In Touch</h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  I'm currently open to new opportunities and interesting projects. 
-                  Whether you have a job opportunity, want to collaborate on a project, 
+                  Whether you have a job opportunity,
                   or just want to connect, I'd love to hear from you.
                 </p>
               </div>
@@ -132,10 +131,10 @@ const ContactSection = () => {
                       <div className="flex-1">
                         <h4 className="font-medium text-card-foreground">{info.title}</h4>
                         {info.link ? (
-                          <a 
-                            href={info.link} 
+                          <a
+                            href={info.link}
                             className="text-muted-foreground hover:text-primary transition-colors"
-                            target="_blank" 
+                            target="_blank"
                             rel="noopener noreferrer"
                           >
                             {info.content}
@@ -152,7 +151,7 @@ const ContactSection = () => {
               <Card className="p-6 bg-gradient-primary text-primary-foreground border-0">
                 <h4 className="font-semibold mb-2">Quick Response</h4>
                 <p className="text-blue-100 text-sm">
-                  I typically respond to messages within 24 hours. 
+                  I typically respond to messages within 24 hours.
                   Looking forward to connecting with you!
                 </p>
               </Card>

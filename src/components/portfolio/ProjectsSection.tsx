@@ -40,7 +40,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
@@ -48,18 +48,17 @@ const ProjectsSection = () => {
               Featured Projects
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Here are some of the projects I've built that showcase my skills in full-stack 
+              Here are some of the projects I've built that showcase my skills in full-stack
               development, problem-solving, and creating impactful solutions.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card 
-                key={index} 
-                className={`group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border bg-card ${
-                  project.featured ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
+              <Card
+                key={index}
+                className={`group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border bg-card ${project.featured ? 'md:col-span-2 lg:col-span-1' : ''
+                  }`}
               >
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
@@ -76,20 +75,20 @@ const ProjectsSection = () => {
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                
+
                 <CardContent className="space-y-4">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex} 
-                        variant="outline" 
+                      <Badge
+                        key={techIndex}
+                        variant="outline"
                         className="text-xs border-border bg-background/50"
                       >
                         {tech}
                       </Badge>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-3 pt-2">
                     <Button variant="outline" size="sm" className="flex items-center gap-2">
                       <Github className="h-4 w-4" />
