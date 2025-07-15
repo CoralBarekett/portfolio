@@ -34,8 +34,8 @@ const AboutSection = () => {
               About Me
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              I'm a passionate Computer Science student and software developer who loves creating 
-              digital experiences that make a difference. My journey combines technical expertise 
+              I'm a passionate Computer Science student and software developer who loves creating
+              digital experiences that make a difference. My journey combines technical expertise
               with creative problem-solving to build innovative solutions.
             </p>
           </div>
@@ -45,18 +45,17 @@ const AboutSection = () => {
               <h3 className="text-2xl font-semibold mb-6 text-foreground">My Journey</h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  My passion for technology started early, and I've been fortunate to turn that 
-                  curiosity into a career path. Currently pursuing Computer Science, I've gained 
-                  hands-on experience building full-stack applications and solving real-world problems.
+                  My interest in technology started from curiosity — wanting to understand how things work and how to make them better.
+                  Over time, that curiosity grew into a more serious path. I'm currently studying Computer Science and building my way through it,
+                  project by project.
                 </p>
                 <p>
-                  I believe in continuous learning and staying up-to-date with the latest 
-                  technologies. Whether it's mastering a new framework or optimizing performance, 
-                  I'm always eager to expand my skillset and take on new challenges.
+                  Through hands-on experience in full-stack development, I've worked on projects that combine practical tech with real-world value —
+                  like an AI-based stock prediction platform, a pet adoption system, and more. I enjoy taking an idea and turning it into something that works and helps.
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing to 
-                  open-source projects, or sharing knowledge with the developer community.
+                  I keep learning as I go, whether it’s a new framework, backend challenge, or just improving what I already know.
+                  I like building things that are clear, useful, and make sense — both in code and in purpose.
                 </p>
               </div>
             </div>

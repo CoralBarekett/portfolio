@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
+import { useState } from "react";
+
 
 const ContactSection = () => {
   const contactInfo = [
@@ -33,6 +35,42 @@ const ContactSection = () => {
     }
   ];
 
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
@@ -56,58 +94,71 @@ const ContactSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName" className="text-card-foreground">First Name</Label>
+                      <Input
+                        id="firstName"
+                        required
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        className="border-border focus:ring-primary"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName" className="text-card-foreground">Last Name</Label>
+                      <Input
+                        id="lastName"
+                        required
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        className="border-border focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="firstName" className="text-card-foreground">First Name</Label>
+                    <Label htmlFor="email" className="text-card-foreground">Email</Label>
                     <Input
-                      id="firstName"
-                      placeholder=""
+                      id="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="border-border focus:ring-primary"
                     />
                   </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="lastName" className="text-card-foreground">Last Name</Label>
+                    <Label htmlFor="subject" className="text-card-foreground">Subject</Label>
                     <Input
-                      id="lastName"
-                      placeholder=""
+                      id="subject"
+                      required
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       className="border-border focus:ring-primary"
                     />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-card-foreground">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder=""
-                    className="border-border focus:ring-primary"
-                  />
-                </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-card-foreground">Message</Label>
+                    <Textarea
+                      id="message"
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Got a job opportunity in mind? I'd love to hear the details - or just say hi!"
+                      rows={6}
+                      className="border-border focus:ring-primary resize-none"
+                    />
+                  </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-card-foreground">Subject</Label>
-                  <Input
-                    id="subject"
-                    placeholder="Job Opportunity"
-                    className="border-border focus:ring-primary"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-card-foreground">Message</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Got a job opportunity in mind? I'd love to hear the details - or just say hi !"
-                    rows={6}
-                    className="border-border focus:ring-primary resize-none"
-                  />
-                </div>
-
-                <Button className="w-full group">
-                  Send Message
-                  <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                  <Button type="submit" className="w-full group">
+                    Send Message
+                    <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </form>
               </CardContent>
             </Card>
 
