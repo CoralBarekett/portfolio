@@ -6,37 +6,41 @@ import { ExternalLink, Github } from "lucide-react";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind CSS"],
-      github: "#",
+      title: "FINOVA",
+      description:
+        "AI-powered stock prediction platform that integrates financial data, social sentiment, and technical analysis to provide actionable investment insights.",
+      technologies: ["React", "FastAPI", "OpenAI", "YFinance", "MongoDB", "Tailwind CSS"],
+      github: "https://github.com/CoralBarekett/finova-stock-sage",
       demo: "#",
-      featured: true
+      featured: true,
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates, team collaboration, and progress tracking.",
-      technologies: ["TypeScript", "React", "Firebase", "Material-UI"],
-      github: "#",
+      title: "PAWFECT MATCH",
+      description:
+        "Full-stack pet adoption platform with an intelligent matching algorithm that pairs adopters with ideal dogs based on lifestyle, preferences, and training needs.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      github: "https://github.com/CoralBareket/pets-adoption-webapp",
       demo: "#",
-      featured: true
+      featured: true,
     },
     {
-      title: "Weather Analytics Dashboard",
-      description: "Data visualization dashboard for weather patterns using REST APIs and interactive charts.",
-      technologies: ["Python", "FastAPI", "React", "Chart.js", "PostgreSQL"],
-      github: "#",
+      title: "Unfit",
+      description:
+        "Second-hand clothing resale app inspired by the 'לא יושב בול' Facebook group. Includes user authentication, posts with images, comments, and personal profiles.",
+      technologies: ["Android", "Kotlin", "Room DB", "Firebase"],
+      github: "https://github.com/CoralBarekett/Unfit-2.0",
       demo: "#",
-      featured: false
+      featured: true,
     },
     {
-      title: "Social Media API",
-      description: "RESTful API for social media platform with authentication, posts, and user management.",
-      technologies: ["Java", "Spring Boot", "MySQL", "JWT", "Docker"],
+      title: "Ilanique",
+      description:
+        "Design prints and personalized gifts storefront built for a local designer. Features user registration, shopping cart, product management, and live chat.",
+      technologies: ["React", "Nest.js", "MongoDB", "Tailwind CSS", "Socket.IO"],
       github: "#",
       demo: "#",
-      featured: false
-    }
+      featured: false,
+    },
   ];
 
   return (
@@ -90,14 +94,32 @@ const ProjectsSection = () => {
                   </div>
 
                   <div className="flex gap-3 pt-2">
-                    <Button variant="outline" size="sm" className="flex items-center gap-2">
-                      <Github className="h-4 w-4" />
-                      Code
-                    </Button>
-                    <Button size="sm" className="flex items-center gap-2">
-                      <ExternalLink className="h-4 w-4" />
-                      Live Demo
-                    </Button>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex"
+                      >
+                        <Button variant="outline" size="sm" className="flex items-center gap-2">
+                          <Github className="h-4 w-4" />
+                          Code
+                        </Button>
+                      </a>
+                    )}
+                    {project.demo && project.demo !== "#" && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex"
+                      >
+                        <Button size="sm" className="flex items-center gap-2">
+                          <ExternalLink className="h-4 w-4" />
+                          Live Demo
+                        </Button>
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </Card>

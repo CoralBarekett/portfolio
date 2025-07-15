@@ -12,27 +12,27 @@ const SkillsSection = () => {
     {
       icon: Globe,
       title: "Frontend Development",
-      skills: ["React", "Next.js", "Tailwind CSS", "Material-UI", "Responsive Design", "Redux"]
+      skills: ["React", "Next.js", "Tailwind CSS", "Material-UI", "Vite", "Responsive Design", "Redux"]
     },
     {
       icon: Server,
       title: "Backend Development",
-      skills: ["Node.js", "Express", "FastAPI", "Spring Boot", "REST APIs", "GraphQL"]
+      skills: ["Node.js", "Express", "FastAPI", "Spring Boot", "Nest.js", "REST APIs", "JWT"]
     },
     {
       icon: Database,
       title: "Databases & Cloud",
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "AWS", "Docker"]
+      skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Room DB", "AWS", "Docker"]
     },
     {
       icon: Wrench,
       title: "Tools & Technologies",
-      skills: ["Git", "GitHub", "VS Code", "Postman", "Figma", "Linux"]
+      skills: ["GitHub", "VS Code", "Postman", "Figma", "Android Studio", "Jira"]
     },
     {
       icon: Smartphone,
       title: "Other Skills",
-      skills: ["Problem Solving", "Team Collaboration", "Agile", "UI/UX Design", "Testing", "DevOps"]
+      skills: ["Problem Solving", "Team Collaboration", "UI/UX Design", "Agile", "AI Integration", "API Integration", "State Management"]
     }
   ];
 
@@ -52,8 +52,8 @@ const SkillsSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="group hover:shadow-soft transition-all duration-300 hover:-translate-y-1 border-border bg-card"
               >
                 <CardHeader className="pb-4">
@@ -66,13 +66,13 @@ const SkillsSection = () => {
                     </CardTitle>
                   </div>
                 </CardHeader>
-                
+
                 <CardContent className="pt-0">
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <Badge 
-                        key={skillIndex} 
-                        variant="secondary" 
+                      <Badge
+                        key={skillIndex}
+                        variant="secondary"
                         className="text-xs bg-secondary/50 hover:bg-secondary transition-colors cursor-default"
                       >
                         {skill}
@@ -97,7 +97,7 @@ const SkillsSection = () => {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-lg">
-                  15+
+                  10+
                 </div>
                 <h4 className="font-semibold text-foreground mb-2">Projects Built</h4>
                 <p className="text-muted-foreground text-sm">Personal and collaborative projects</p>
