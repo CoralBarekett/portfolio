@@ -11,10 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// 🟣 Serve static files from the React build
-app.use(express.static(path.join(__dirname, "../client/dist")));
-
-// API Routes
+// API Route
 app.post("/contact", async (req, res) => {
   const { firstName, lastName, email, subject, message } = req.body;
 
@@ -45,10 +42,16 @@ app.post("/contact", async (req, res) => {
   }
 });
 
-// 🟣 Serve index.html for all other GET requests (React router)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
-});
+// ✅ Serve static frontend in production
+if (process.env.NODE_ENV === "production") {
+  const clientBuildPath = path.join(__dirname, "..", "client", "dist");
+  app.use(express.static(clientBuildPath));
+
+  // For React Router fallback
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(clientBuildPath, "index.html"));
+  });
+}
 
 // Start server
 app.listen(PORT, () => {
