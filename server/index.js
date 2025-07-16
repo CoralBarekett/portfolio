@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -11,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// API Route
+// Routes
 app.post("/contact", async (req, res) => {
   const { firstName, lastName, email, subject, message } = req.body;
 
@@ -22,8 +21,8 @@ app.post("/contact", async (req, res) => {
       pass: process.env.EMAIL_PASS,
     },
     tls: {
-      rejectUnauthorized: false,
-    },
+    rejectUnauthorized: false,
+  },
   });
 
   const mailOptions = {
@@ -41,17 +40,6 @@ app.post("/contact", async (req, res) => {
     res.status(500).json({ message: "Failed to send message" });
   }
 });
-
-// ✅ Serve static frontend in production
-if (process.env.NODE_ENV === "production") {
-  const clientBuildPath = path.join(__dirname, "..", "client", "dist");
-  app.use(express.static(clientBuildPath));
-
-  // For React Router fallback
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(clientBuildPath, "index.html"));
-  });
-}
 
 // Start server
 app.listen(PORT, () => {

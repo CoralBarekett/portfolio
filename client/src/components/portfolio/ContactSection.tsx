@@ -47,7 +47,7 @@ const ContactSection = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/contact", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
