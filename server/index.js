@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -10,7 +11,10 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// 🟣 Serve static files from the React build
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+// API Routes
 app.post("/contact", async (req, res) => {
   const { firstName, lastName, email, subject, message } = req.body;
 
@@ -21,8 +25,8 @@ app.post("/contact", async (req, res) => {
       pass: process.env.EMAIL_PASS,
     },
     tls: {
-    rejectUnauthorized: false,
-  },
+      rejectUnauthorized: false,
+    },
   });
 
   const mailOptions = {
@@ -39,6 +43,11 @@ app.post("/contact", async (req, res) => {
     console.error("Error sending email:", error);
     res.status(500).json({ message: "Failed to send message" });
   }
+});
+
+// 🟣 Serve index.html for all other GET requests (React router)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 // Start server
